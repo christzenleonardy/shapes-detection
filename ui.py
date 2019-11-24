@@ -151,8 +151,9 @@ class TopLevel (tk.Frame):
     def sendString(self,event):
         global initial_facts, src_image1, src_image2, file_path, file_path2
         item = self.TreeViewShape.identify('item',event.x,event.y)
+        item = self.TreeViewShape.item(item)['text']
         # print (self.src_image1)
-        print('haha', file_path, file_path2)
+        print('haha', file_path, item)
         hasil, matched_facts, fired_rules, result_list, initial_facts = kbs.run_kbs(file_path, 'segitiga-sama-sisi')
         self.openDetectionImg(event)
         self.showDetRes(hasil, result_list)
